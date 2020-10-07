@@ -59,12 +59,12 @@ export class HeroesService {
     console.log("Servicio listo para usar");
   }
 
-  getHeroes():Heroe{
+  getHeroes():Heroe[]{
     return this.heroes;
   }
 }
 
-export interface Heroe{
+export interface Heroe {
   nombre: string;
   bio: string;
   img: string;
