@@ -108,9 +108,9 @@
           <td>
             date:'MMMM - dd':'':idioma
             <br>
-            <button (click)="idioma = 'es'" class="mr-1 btn btn-primary" >Español</button>
-            <button (click)="idioma = 'en'" class="mr-1 btn btn-secondary" >Inglés</button>
-            <button (click)="idioma = 'fr'" class="mr-1 btn btn-success" >Francés</button>
+            <button (click)="idioma = 'es'" class="mr-1 btn btn-primary">Español</button>
+            <button (click)="idioma = 'en'" class="mr-1 btn btn-secondary">Inglés</button>
+            <button (click)="idioma = 'fr'" class="mr-1 btn btn-success">Francés</button>
           </td>
           <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
         </tr>
@@ -129,5 +129,12 @@
         </pre>
       </div>
     </div>
+  </div>
+</div>
+<h3 class="mt-4">Domseguro</h3>
+<hr>
+<div class="row mb-5">
+  <div class="col">
+    <iframe width="560" height="315" [src]="videoURL | domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
