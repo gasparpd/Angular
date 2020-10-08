@@ -13,7 +13,6 @@ export class BuscaheroeComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private _heroesService: HeroesService) {
-
   }
 
   ngOnInit(): void {
