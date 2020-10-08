@@ -15,6 +15,7 @@ export class AppComponent {
   salario: number = 1234.5;
   fecha: Date = new Date();
   idioma: string = 'es';
+  activar:boolean = true;
 
   videoURL:string = 'https://www.youtube.com/embed/hvIg3PTJWxs';
 
