@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 //Importar rutas
 import { ROUTES } from './app.routes';
 
-
 @NgModule({
   declarations: [
     AppComponent,
