@@ -33,7 +33,11 @@ export class ReactiveComponent implements OnInit {
     this.forma = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
       apellido: ['', Validators.required],
-      correo: ['', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'), Validators.required]]
+      correo: ['', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'), Validators.required]],
+      direccion: this.fb.group({
+        ciudad: ['', Validators.required],
+        calle: ['', Validators.required]
+      })
     });
   }
 
