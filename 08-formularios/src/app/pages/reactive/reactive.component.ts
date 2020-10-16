@@ -18,6 +18,10 @@ export class ReactiveComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  agregarPasatiempo(){
+    this.pasatiempos.push(this.fb.control('Nuevo elemento', Validators.required));
+  }
+
   get pasatiempos() {
     return this.forma.get('pasatiempos') as FormArray;
   }
@@ -51,12 +55,7 @@ export class ReactiveComponent implements OnInit {
         ciudad: ['', Validators.required],
         calle: ['', Validators.required]
       }),
-      pasatiempos: this.fb.array([
-        [],
-        [],
-        [],
-        []
-      ])
+      pasatiempos: this.fb.array([])
     });
   }
 
