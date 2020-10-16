@@ -12,28 +12,29 @@ export class ReactiveComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.crearFormulario();
+    this.cargarDataAlFormulario();
   }
 
   ngOnInit(): void {
   }
 
-  get nombreNoValido(){
+  get nombreNoValido() {
     return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
   }
 
-  get apellidoNoValido(){
+  get apellidoNoValido() {
     return this.forma.get('apellido').invalid && this.forma.get('apellido').touched;
   }
 
-  get correoNoValido(){
+  get correoNoValido() {
     return this.forma.get('correo').invalid && this.forma.get('correo').touched;
   }
 
-  get ciudadNoValida(){
+  get ciudadNoValida() {
     return this.forma.get('direccion.ciudad').invalid && this.forma.get('direccion.ciudad').touched;
   }
 
-  get calleNoValida(){
+  get calleNoValida() {
     return this.forma.get('direccion.calle').invalid && this.forma.get('direccion.calle').touched;
   }
 
@@ -49,20 +50,35 @@ export class ReactiveComponent implements OnInit {
     });
   }
 
-  guardar(){
+  guardar() {
     console.log(this.forma);
 
     if (this.forma.invalid) {
       Object.values(this.forma.controls).forEach(control => {
 
-        if(control instanceof FormGroup){
+        if (control instanceof FormGroup) {
           Object.values(control.controls).forEach(control => control.markAsTouched())
         } else {
           control.markAsTouched();
         }
       });
-
-      
     }
+
+    //Posteo de la información
+    this.forma.reset({
+      nombre:'Sin nombre'
+    });
+  }
+
+  cargarDataAlFormulario() {
+    this.forma.reset({
+      nombre: 'Gaspar',
+      apellido: 'Prieto',
+      correo: 'prueba@mail.com',
+      direccion: {
+        ciudad: 'Oviedo',
+        calle: '14 abril'
+      }
+    });
   }
 }
