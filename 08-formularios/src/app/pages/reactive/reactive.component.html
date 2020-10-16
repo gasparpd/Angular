@@ -9,10 +9,10 @@
       <div class="col">
 
         <input class="form-control"
-               type="text"
-               placeholder="Nombre"
-               formControlName="nombre"
-               [class.is-invalid]="nombreNoValido">
+        type="text"
+        placeholder="Nombre"
+        formControlName="nombre"
+        [class.is-invalid]="nombreNoValido">
         <small *ngIf="nombreNoValido" class="text-danger">
           Ingrese almenos 5 letras
         </small>
@@ -24,10 +24,10 @@
       <div class="col">
 
         <input class="form-control"
-               type="text"
-               placeholder="Apellido"
-               formControlName="apellido"
-               [class.is-invalid]="apellidoNoValido">
+        type="text"
+        placeholder="Apellido"
+        formControlName="apellido"
+        [class.is-invalid]="apellidoNoValido">
         <small *ngIf="apellidoNoValido" class="text-danger">
           Ingrese el apellido
         </small>
@@ -41,10 +41,10 @@
     <div class="col">
 
       <input class="form-control"
-             type="email"
-             placeholder="Correo electrónico"
-             formControlName="correo"
-             [class.is-invalid]="correoNoValido">
+      type="email"
+      placeholder="Correo electrónico"
+      formControlName="correo"
+      [class.is-invalid]="correoNoValido">
       <small *ngIf="correoNoValido" class="text-danger">
         Correo inválido
       </small>
@@ -57,19 +57,51 @@
 
       <div class="col">
         <input type="text"
-               class="form-control"
-               placeholder="Ciudad"
-               formControlName="ciudad"
-               [class.is-invalid]="ciudadNoValida">
+        class="form-control"
+        placeholder="Ciudad"
+        formControlName="ciudad"
+        [class.is-invalid]="ciudadNoValida">
       </div>
       <div class="col">
         <input type="text"
-               class="form-control"
-               placeholder="Calle"
-               formControlName="calle"
-               [class.is-invalid]="calleNoValida">
+        class="form-control"
+        placeholder="Calle"
+        formControlName="calle"
+        [class.is-invalid]="calleNoValida">
       </div>
 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr class="thead-dark">
+            <th>ID</th>
+            <th>Pasatiempo</th>
+            <th>Borrar</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="pasatiempos">
+          <tr *ngFor="let control of pasatiempos.controls; let i = index">
+            <td>{{i + 1}}</td>
+            <td>
+              <input class="form-control"
+                     type="text"
+                     [formControlName]="i">
+            </td>
+            <td>
+              <button class="btn btn-danger">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary m-3 mb-5 btn-block"
+              type="button">
+        + Agregar
+      </button>
     </div>
   </div>
 
