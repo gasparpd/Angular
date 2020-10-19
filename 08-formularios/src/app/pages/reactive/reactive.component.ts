@@ -43,16 +43,31 @@ export class ReactiveComponent implements OnInit {
     return this.forma.get('direccion.calle').invalid && this.forma.get('direccion.calle').touched;
   }
 
+  get pass1NoValido() {
+    return this.forma.get('pass1').invalid && this.forma.get('pass1').touched;
+  }
+
+  get pass2NoValido() {
+    const pass1 = this.forma.get('pass1').value;
+    const pass2 = this.forma.get('pass2').value;
+
+    return (pass1 === pass2) ? false : true;
+  }
+
   crearFormulario() {
     this.forma = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
       apellido: ['', [Validators.required, this.validadores.noHerrera]],
       correo: ['', [Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'), Validators.required]],
+      pass1: ['', Validators.required],
+      pass2: ['', Validators.required],
       direccion: this.fb.group({
         ciudad: ['', Validators.required],
         calle: ['', Validators.required]
       }),
       pasatiempos: this.fb.array([])
+    },{
+      validators: this.validadores.passwordsIguales('pass1', 'pass2')
     });
   }
 
@@ -68,7 +83,7 @@ export class ReactiveComponent implements OnInit {
     });
 
     //Cargamos los pasatiempos
-    ['Comer', 'Dormir'].forEach(valor => this.pasatiempos.push(this.fb.control(valor)));
+    //['Comer', 'Dormir'].forEach(valor => this.pasatiempos.push(this.fb.control(valor)));
   }
 
   guardar() {
@@ -88,15 +103,15 @@ export class ReactiveComponent implements OnInit {
 
     //Posteo de la información
     this.forma.reset({
-      nombre:'Sin nombre'
+      nombre: 'Sin nombre'
     });
   }
 
-  agregarPasatiempo(){
+  agregarPasatiempo() {
     this.pasatiempos.push(this.fb.control(''));
   }
 
-  borrarPasatiempo(i: number){
+  borrarPasatiempo(i: number) {
     this.pasatiempos.removeAt(i);
   }
 
