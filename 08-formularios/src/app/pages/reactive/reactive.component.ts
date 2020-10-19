@@ -18,10 +18,6 @@ export class ReactiveComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  agregarPasatiempo(){
-    this.pasatiempos.push(this.fb.control('Nuevo elemento', Validators.required));
-  }
-
   get pasatiempos() {
     return this.forma.get('pasatiempos') as FormArray;
   }
@@ -69,6 +65,9 @@ export class ReactiveComponent implements OnInit {
         calle: '14 abril'
       }
     });
+
+    //Cargamos los pasatiempos
+    ['Comer', 'Dormir'].forEach(valor => this.pasatiempos.push(this.fb.control(valor)));
   }
 
   guardar() {
@@ -85,10 +84,19 @@ export class ReactiveComponent implements OnInit {
       });
     }
 
+
     //Posteo de la información
     this.forma.reset({
       nombre:'Sin nombre'
     });
+  }
+
+  agregarPasatiempo(){
+    this.pasatiempos.push(this.fb.control(''));
+  }
+
+  borrarPasatiempo(i: number){
+    this.pasatiempos.removeAt(i);
   }
 
 }
