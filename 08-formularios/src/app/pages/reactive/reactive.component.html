@@ -8,11 +8,7 @@
       <label class="col-2 col-form-label">Nombre</label>
       <div class="col">
 
-        <input class="form-control"
-        type="text"
-        placeholder="Nombre"
-        formControlName="nombre"
-        [class.is-invalid]="nombreNoValido">
+        <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
         <small *ngIf="nombreNoValido" class="text-danger">
           Ingrese almenos 5 letras
         </small>
@@ -23,11 +19,7 @@
       <label class="col-2 col-form-label">Apellido</label>
       <div class="col">
 
-        <input class="form-control"
-        type="text"
-        placeholder="Apellido"
-        formControlName="apellido"
-        [class.is-invalid]="apellidoNoValido">
+        <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" [class.is-invalid]="apellidoNoValido">
         <small *ngIf="apellidoNoValido" class="text-danger">
           Ingrese el apellido
         </small>
@@ -40,11 +32,7 @@
     <label class="col-2 col-form-label">Correo</label>
     <div class="col">
 
-      <input class="form-control"
-      type="email"
-      placeholder="Correo electrónico"
-      formControlName="correo"
-      [class.is-invalid]="correoNoValido">
+      <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoNoValido">
       <small *ngIf="correoNoValido" class="text-danger">
         Correo inválido
       </small>
@@ -55,11 +43,7 @@
     <label class="col-2 col-form-label">Contraseña</label>
     <div class="col">
 
-      <input class="form-control"
-      type="password"
-      placeholder="Contraseña"
-      formControlName="pass1"
-      [class.is-invalid]="pass1NoValido">
+      <input class="form-control" type="password" placeholder="Contraseña" formControlName="pass1" [class.is-invalid]="pass1NoValido">
     </div>
   </div>
 
@@ -67,11 +51,7 @@
     <label class="col-2 col-form-label">Repita</label>
     <div class="col">
 
-      <input class="form-control"
-      type="password"
-      placeholder="Repita contraseña"
-      formControlName="pass2"
-      [class.is-invalid]="pass2NoValido">
+      <input class="form-control" type="password" placeholder="Repita contraseña" formControlName="pass2" [class.is-invalid]="pass2NoValido">
     </div>
   </div>
 
@@ -80,18 +60,10 @@
     <div class="form-row col">
 
       <div class="col">
-        <input type="text"
-        class="form-control"
-        placeholder="Ciudad"
-        formControlName="ciudad"
-        [class.is-invalid]="ciudadNoValida">
+        <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValida">
       </div>
       <div class="col">
-        <input type="text"
-        class="form-control"
-        placeholder="Calle"
-        formControlName="calle"
-        [class.is-invalid]="calleNoValida">
+        <input type="text" class="form-control" placeholder="Calle" formControlName="calle" [class.is-invalid]="calleNoValida">
       </div>
 
     </div>
@@ -111,23 +83,18 @@
           <tr *ngFor="let control of pasatiempos.controls; let i = index">
             <td>{{i + 1}}</td>
             <td>
-              <input class="form-control"
-                     type="text"
-                     [formControlName]="i">
+              <input class="form-control" type="text" [formControlName]="i">
             </td>
             <td>
-              <button class="btn btn-danger"
-                      (click)="borrarPasatiempo(i)">
-                      Borrar
+              <button class="btn btn-danger" (click)="borrarPasatiempo(i)">
+                Borrar
               </button>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <button class="btn btn-primary m-3 mb-5 btn-block"
-              type="button"
-              (click)="agregarPasatiempo()">
+      <button class="btn btn-primary m-3 mb-5 btn-block" type="button" (click)="agregarPasatiempo()">
         + Agregar
       </button>
     </div>
@@ -153,5 +120,5 @@
 </pre>
 
 <pre>
-  {{forma.value | json}}
+{{forma.value | json}}
 </pre>

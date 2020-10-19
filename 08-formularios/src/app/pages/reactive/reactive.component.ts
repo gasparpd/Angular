@@ -11,7 +11,8 @@ export class ReactiveComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor(private fb: FormBuilder, private validadores: ValidadoresService) {
+  constructor(private fb: FormBuilder,
+              private validadores: ValidadoresService) {
     this.crearFormulario();
     this.cargarDataAlFormulario();
   }

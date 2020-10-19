@@ -10,15 +10,14 @@ export class ValidadoresService {
 
   noHerrera(control: FormControl): { [s: string]: boolean } {
 
-    if (control.value ?.toLowerCase() === 'herrera') {
+    if (control.value?.toLowerCase() === 'herrera') {
       return {
         noHerrera: true
       }
     }
 
-    return {
-      noHerrera: null
-    }
+    return null;
+
   }
 
   passwordsIguales(pass1Name: string, pass2Name: string) {
